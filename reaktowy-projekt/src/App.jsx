@@ -58,6 +58,12 @@ function App() {
     }
   }
 
+  const resetujStatystyki = () => {
+    setWygrane(0);
+    setPrzegrane(0);
+    setLosowania(0);
+  }
+
   return (
     <>
       <div className='container my-5 text-center'>
@@ -85,7 +91,8 @@ function App() {
             </div>
           </div>
           <div>
-            <button className='btn btn-success btn-lg px-5 shadow' onClick={() => losuj()}>RZUĆ</button>
+            <button className='btn btn-success btn-lg px-5 shadow m-5' onClick={() => losuj()}>RZUĆ</button>
+            <button className='btn btn-danger btn-lg px-5 shadow m-5' onClick={() => resetujStatystyki()}>RESET</button>
           </div>
         </div>
         <div className='col my-5'>
