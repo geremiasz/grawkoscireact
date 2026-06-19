@@ -90,8 +90,11 @@ function App() {
         </div>
         <div className='col my-5'>
             <form className='form'>
-              <input type="number" className="form-control my-2" name="liczbaKosci" value={liczbaKosci} onChange={(e) => setLiczbaKosci(Math.max(1, parseInt(e.target.value)))}/>
-              <input type="number" className="form-control my-2" name="progPunktowy" value={progPunktowy} onChange={(e) => setProgPunktowy(Math.max(1, parseInt(e.target.value)))}/>
+              <input type="number" min="1" className="form-control my-2" name="liczbaKosci" value={liczbaKosci} onChange={(e) => {
+                const n = Number.parseInt(e.target.value, 10)
+                setLiczbaKosci(Number.isNaN(n) ? 1 : Math.max(1, n))
+              }}/>
+              <input type="number" min="1" className="form-control my-2" name="progPunktowy" value={progPunktowy} onChange={(e) => setProgPunktowy(Math.max(1, parseInt(e.target.value)))}/>
             </form>
         </div>
       </div>
